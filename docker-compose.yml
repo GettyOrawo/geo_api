@@ -20,6 +20,9 @@ services:
     # Declares which Postres image to use
     image: postgres:latest
     # Declare a volume to not loose database data when stopping the container
+    environment:
+      POSTGRES_DB: "db"
+      POSTGRES_HOST_AUTH_METHOD: "trust"
     volumes:
       - postgres:/var/lib/postgresql/data
     # Maps port to be accessed by `web` container

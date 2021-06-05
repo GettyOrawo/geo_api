@@ -1,21 +1,40 @@
 # GeoApi
 
-**TODO: Add description**
+**Welcome to GeoWorld where all your location details are kept secure and accessible to you anytime you'd need them**
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `geo_api` to your list of dependencies in `mix.exs`:
+THis project specifically is a REST API that consumes the geo_world library, you can check out how to use `geo_world` (https://github.com/GettyOrawo/geo_world.git) and install the package
+To start let's get our docker image setup. Run the following commands on your terminal
+
 
 ```elixir
-def deps do
-  [
-    {:geo_api, "~> 0.1.0"}
-  ]
-end
+sudo docker-compose build 
+```
+#to build the project, fetch dependencies if any
+
+```elixir
+sudo docker-compose up 
+```
+#to start our docker container, setup our database as well as get the server running
+
+The database configuration is already setup on `config/config.exs` hence you should be able to create your database locally. please note that the database name & passwords might not match yours.
+
+
+You're all set! Now start the server, our server should be listening on port 4000!
+
+To access the geolocation info for your ip address, call this endpoint replacing the provided IP address with yours:
+
+```
+/geolocation/201.123.32.22
+```
+or on your terminal:
+
+```curl
+curl --location --request GET 'http://localhost:4000/status' --header 'Content-Type: application/json'
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/geo_api](https://hexdocs.pm/geo_api).
+If you experienced any issues on the setup or need to inquire about anything, feel free to reach out.
+
+:)
 
