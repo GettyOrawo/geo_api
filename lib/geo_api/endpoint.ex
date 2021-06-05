@@ -1,18 +1,20 @@
 defmodule GeoApi.Endpoint do
   use Plug.Router
-
+  
   plug(:match)
-  plug(Plug.Parsers,
-  	parsers: [:json],
-  	pass: "application/json",
-  	json_decoder: Poison
-  )
-  Plug.Dispatch
 
-  forward("/geolocation", to: GeoApi.Router)
+  plug(Plug.Parsers,
+    parsers: [:json],
+    pass: ["application/json"],
+    json_decoder: Poison
+  )
+
+  plug(:dispatch)
+
+  forward("/geolocation/:ip_address", to: GeoApi.Router)
 
   match _ do
-  	send_resp(conn, 404, "We did not find the page you requested!")
+    send_resp(conn, 404, "Requested page not found!")
   end
 
   def child_spec(opts) do

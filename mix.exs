@@ -14,7 +14,7 @@ defmodule GeoApi.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger],
+      extra_applications: [:logger, :geo_world],
       mod: {GeoApi.Application, []}
     ]
   end
@@ -22,7 +22,6 @@ defmodule GeoApi.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      # {:dep_from_hexpm, "~> 0.3.0"},
       {:geo_world, git: "https://github.com/GettyOrawo/geo_world.git"},
       {:poison, "~> 4.0"},
       {:plug, "~> 1.11"},

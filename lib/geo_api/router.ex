@@ -1,13 +1,11 @@
 defmodule GeoApi.Router do
   use Plug.Router
-  import GeoWorld
-
 
   plug(:match)
   plug(:dispatch)
 
-  get "/geolocation/:ip_address" do
-  	{code, message} = respns(conn)
+get "/" do
+    {code, message} = respns(conn)
     conn
     |> put_resp_content_type("application/json")
     |> send_resp(code, Poison.encode!(message))
@@ -15,7 +13,7 @@ defmodule GeoApi.Router do
 
   defp respns(conn) do
     %{"ip_address" => ip_address} = conn.params
-    case get_geolocation_data(ip_address) do
+    case GeoWorld.get_geolocation_data(ip_address) do
       nil -> 
         {
           400, %{
