@@ -1,4 +1,5 @@
-import Config
+use Mix.Config
+
 config :geo_world, GeoWorld.Repo,
   database: "geo_api",
   username: "postgres",
