@@ -36,5 +36,15 @@ curl --location --request GET 'http://localhost:4000/status' --header 'Content-T
 
 If you experienced any issues on the setup or need to inquire about anything, feel free to reach out.
 
-:)
+**special notes**
+- setting this up for production proved quite difficult given the configuration for ssl, Heroku however clasifies this configuration as a paid tier. Took quite sometime on this to no avail :( . Kept bumping into the following errors on starting my production server, most of the references pointed to either:
+  - incorrect db configuration
+  - ssl required
+- So I basically just setup my local db and would advice you do the same as well:
+
+![Screenshot from 2021-06-08 16-56-54](https://user-images.githubusercontent.com/17080976/121242933-caa67e00-c8a5-11eb-93dc-1f1e971035a6.png)
+
+![Screenshot from 2021-06-08 16-58-46](https://user-images.githubusercontent.com/17080976/121242944-cd08d800-c8a5-11eb-83c7-2dc96e4e4db6.png)
+
+Above all, this was fun :)
 
