@@ -25,3 +25,7 @@ geo_api-*.tar
 
 # Temporary files for e.g. tests
 /tmp
+
+mix.lock
+
+data_dump.csv
